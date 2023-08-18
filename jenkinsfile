@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+
+  stages{
+    stage('CHeck Pull Request'){
+      when{
+           expression {
+             return env.CHANGE_ID != null
+          }
+        }
+      steps{
+            echo "Successfully detect Pull Request"
+        }
+    }
+  }
+}
